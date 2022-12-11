@@ -1,0 +1,17 @@
+.barchart-container {
+  width: 90%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4rem 5%;
+  overflow: scroll;
+  padding: 2rem 0;
+}
+.chart-grid {
+  width: 45%;
+}
+.title {
+  width: 100%;
+  text-align: center;
+}

@@ -3,11 +3,11 @@ import expressAsyncHandler from 'express-async-handler';
 import Data from '../Model/dataModel.js';
 const dataRouter = express.Router();
 
-dataRouter.get('/data/seed', async (req, res) => {
-  await Data.deleteMany({});
-  const insertedData = await Data.insertMany(data);
-  res.send({ insertedData });
-});
+// dataRouter.get('/data/seed', async (req, res) => {
+//   await Data.deleteMany({});
+//   const insertedData = await Data.insertMany(data);
+//   res.send({ insertedData });
+// });
 dataRouter.get(
   '/data/get',
   expressAsyncHandler(async (req, res) => {
@@ -16,3 +16,6 @@ dataRouter.get(
   })
 );
 export default dataRouter;
+
+//  piediagram = livelyhood,relevance,Topics,
+//  line =start_year , Country,region,city
