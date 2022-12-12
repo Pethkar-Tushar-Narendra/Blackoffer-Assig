@@ -64,10 +64,10 @@ dataRouter.get(
       },
       { $sort: { _id: 1 } },
     ]);
-    const livelyhood = await Data.aggregate([
+    const likelihood = await Data.aggregate([
       {
         $group: {
-          _id: '$livelyhood',
+          _id: '$likelihood',
           count: { $sum: 1 },
         },
       },
@@ -83,7 +83,7 @@ dataRouter.get(
       { $sort: { _id: 1 } },
     ]);
     res.send({
-      livelyhood,
+      likelihood,
       relevance,
       intensity,
       region,

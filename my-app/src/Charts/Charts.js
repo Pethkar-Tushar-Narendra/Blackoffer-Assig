@@ -1,9 +1,9 @@
 import React from 'react';
-import './BarChart.css';
+import './Charts.css';
 import PieDiagram from './PieDiagram';
 import AreaDiagram from './AreaDiagram';
 import BarDiagram from './BarDiagram';
-const BarChart = () => {
+const Charts = () => {
   return (
     <div className="barchart-container">
       <h1 className="title">Dashboard Screen</h1>
@@ -22,9 +22,8 @@ const BarChart = () => {
       <div className="chart-grid">
         <BarDiagram />
       </div>
-      <div className="chart-grid"></div>
     </div>
   );
 };
 
-export default BarChart;
+export default Charts;

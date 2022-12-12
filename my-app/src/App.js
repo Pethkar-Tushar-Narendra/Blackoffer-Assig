@@ -1,9 +1,9 @@
-import BarChart from './BarCharts/BarChart';
 import './App.css';
+import Charts from './Charts/Charts';
 function App() {
   return (
     <div className="container">
-      <BarChart />
+      <Charts />
     </div>
   );
 }
