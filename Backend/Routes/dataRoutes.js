@@ -15,7 +15,86 @@ dataRouter.get(
     res.send({ DBdata });
   })
 );
+
+dataRouter.get(
+  '/data/summary',
+  expressAsyncHandler(async (req, res) => {
+    const topics = await Data.aggregate([
+      {
+        $group: {
+          _id: '$topic',
+          count: { $sum: 1 },
+        },
+      },
+      { $sort: { count: -1 } },
+    ]);
+    const start_year = await Data.aggregate([
+      {
+        $group: {
+          _id: '$start_year',
+          count: { $sum: 1 },
+        },
+      },
+      { $sort: { _id: 1 } },
+    ]);
+    const country = await Data.aggregate([
+      {
+        $group: {
+          _id: '$country',
+          count: { $sum: 1 },
+        },
+      },
+      { $sort: { count: -1 } },
+    ]);
+    const region = await Data.aggregate([
+      {
+        $group: {
+          _id: '$region',
+          count: { $sum: 1 },
+        },
+      },
+      { $sort: { count: -1 } },
+    ]);
+    const intensity = await Data.aggregate([
+      {
+        $group: {
+          _id: '$intensity',
+          count: { $sum: 1 },
+        },
+      },
+      { $sort: { _id: 1 } },
+    ]);
+    const livelyhood = await Data.aggregate([
+      {
+        $group: {
+          _id: '$livelyhood',
+          count: { $sum: 1 },
+        },
+      },
+      { $sort: { _id: 1 } },
+    ]);
+    const relevance = await Data.aggregate([
+      {
+        $group: {
+          _id: '$relevance',
+          count: { $sum: 1 },
+        },
+      },
+      { $sort: { _id: 1 } },
+    ]);
+    res.send({
+      livelyhood,
+      relevance,
+      intensity,
+      region,
+      country,
+      start_year,
+      topics,
+    });
+  })
+);
 export default dataRouter;
 
-//  piediagram = livelyhood,relevance,Topics,
-//  line =start_year , Country,region,city
+//  piediagram = Topics,
+//  line = start_year ,
+// bar = Country,region,city, intensity,livelyhood,relevance
