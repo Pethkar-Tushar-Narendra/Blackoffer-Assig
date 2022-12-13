@@ -21,16 +21,7 @@ ChartJS.register(
   Filler,
   Legend
 );
-const AreaDiagram = () => {
-  const labels = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-  ];
+const AreaDiagram = ({ dataFromParent, title, name }) => {
   const options = {
     responsive: true,
     plugins: {
@@ -39,26 +30,19 @@ const AreaDiagram = () => {
       },
       title: {
         display: true,
-        text: 'Chart.js Line Chart',
+        text: title,
       },
     },
   };
   const data = {
-    labels,
+    labels: dataFromParent.map((e) => (e._id !== '' && e._id ? e._id : 'NA')),
     datasets: [
       {
         fill: true,
-        label: 'Dataset 2',
-        data: [1, 2, 8, 4, 6, 5, 7],
+        label: name,
+        data: dataFromParent.map((e) => e.count),
         borderColor: 'rgb(53, 162, 235)',
         backgroundColor: 'rgba(53, 162, 235, 0.5)',
-      },
-      {
-        fill: true,
-        label: 'Dataset 2',
-        data: [10, 4, 5, 6, 7, 5, 9],
-        borderColor: 'rgba(99, 132, 255)',
-        backgroundColor: 'rgba(99, 132, 255, 0.5)',
       },
     ],
   };

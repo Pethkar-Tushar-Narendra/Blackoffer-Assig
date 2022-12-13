@@ -17,30 +17,17 @@ ChartJS.register(
   Tooltip,
   Legend
 );
-const BarDiagram = () => {
-  const labels = [
-    'Monday',
-    'Tuesday',
-    'Wednesday',
-    'Thursday',
-    'Friday',
-    'Saturday',
-    'Sunday',
-  ];
+const BarDiagram = ({ dataFromParent, title, name }) => {
   const data = {
-    labels,
+    labels: dataFromParent.map((e) =>
+      e._id !== '' && e._id != null ? e._id : 'NA'
+    ),
     datasets: [
       {
-        label: 'Dataset 1',
-        data: [1, 2, 3, 4, 5, 6, 7],
+        label: name,
+        data: dataFromParent.map((e) => e.count),
         borderColor: 'rgba(255, 99, 132)',
         backgroundColor: 'rgba(255, 99, 132, 0.5)',
-      },
-      {
-        label: 'Dataset 2',
-        data: [1, 2, 3, 4, 5, 6, 7],
-        borderColor: 'rgba(99, 132, 255)',
-        backgroundColor: 'rgba(99, 132, 255, 0.5)',
       },
     ],
   };
@@ -52,7 +39,7 @@ const BarDiagram = () => {
       },
       title: {
         display: true,
-        text: 'Chart.js Bar Chart',
+        text: title,
       },
     },
   };

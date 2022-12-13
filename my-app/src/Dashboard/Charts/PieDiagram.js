@@ -3,16 +3,7 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-const PieDiagram = () => {
-  const labels = [
-    'Monday',
-    'Tuesday',
-    'Wednesday',
-    'Thursday',
-    'Friday',
-    'Saturday',
-    'Sunday',
-  ];
+const PieDiagram = ({ dataFromParent }) => {
   const option = {
     responsive: true,
     plugins: {
@@ -22,12 +13,13 @@ const PieDiagram = () => {
       },
     },
   };
+  console.log();
   const data = {
-    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+    labels: dataFromParent.map((e) => (e._id !== '' && e._id ? e._id : 'NA')),
     datasets: [
       {
         label: '# of Votes',
-        data: [12, 19, 3, 5, 2, 3],
+        data: dataFromParent.map((e) => e.count),
         backgroundColor: [
           'rgba(255, 99, 132, 0.2)',
           'rgba(54, 162, 235, 0.2)',

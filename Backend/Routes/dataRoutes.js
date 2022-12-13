@@ -94,7 +94,3 @@ dataRouter.get(
   })
 );
 export default dataRouter;
-
-//  piediagram = Topics,
-//  line = start_year ,
-// bar = Country,region,city, intensity,livelyhood,relevance

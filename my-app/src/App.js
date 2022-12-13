@@ -1,9 +1,9 @@
 import './App.css';
-import Charts from './Charts/Charts';
+import DashboardScreen from './Dashboard/DashboardScreen';
 function App() {
   return (
     <div className="container">
-      <Charts />
+      <DashboardScreen />
     </div>
   );
 }

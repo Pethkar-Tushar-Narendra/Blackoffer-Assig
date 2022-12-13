@@ -15,7 +15,7 @@ mongoose
     console.log(err.message);
   });
 
-app.use('/', dataRouter);
+app.use('/api/', dataRouter);
 
 app.use((err, req, res, next) => {
   res.status(500).send({ message: err.message });
