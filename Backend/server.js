@@ -2,6 +2,8 @@ import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import dataRouter from './Routes/dataRoutes.js';
+import path from 'path';
+
 dotenv.config();
 const app = express();
 
@@ -16,6 +18,12 @@ mongoose
   });
 
 app.use('/api/', dataRouter);
+
+const __dirname = path.resolve();
+app.use(express.static(path.join(__dirname, '/frontend/build')));
+app.get('*', (req, res) =>
+  res.sendFile(path.join(__dirname, '/frontend/build/index.html'))
+);
 
 app.use((err, req, res, next) => {
   res.status(500).send({ message: err.message });
