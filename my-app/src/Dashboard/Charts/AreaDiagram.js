@@ -46,7 +46,7 @@ const AreaDiagram = ({ dataFromParent, title, name }) => {
       },
     ],
   };
-  return <Line data={data} options={options} />;
+  return <Line data={data} width="100%" options={options} />;
 };
 
 export default AreaDiagram;

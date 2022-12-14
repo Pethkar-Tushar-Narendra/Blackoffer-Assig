@@ -20,6 +20,7 @@
   width: 100%;
   position: relative;
   cursor: pointer;
+  padding-right: 20%;
 }
 .box .value i,
 .box .popup .search i {
@@ -32,7 +33,7 @@
   justify-content: center;
   border-radius: 50%;
   position: absolute;
-  right: 20%;
+  right: 10%;
   top: 50%;
   transform: translateY(-50%);
 }
@@ -64,6 +65,14 @@
   border-radius: 0.5rem;
   border: 0.1rem solid var(--clr-para);
   width: 100%;
+  padding-left: 10%;
+  padding-right: 25%;
+  font-weight: 400;
+  font-size: 0.95rem;
+}
+.box .popup .search input::placeholder {
+  font-weight: 500;
+  font-size: 0.95rem;
 }
 .box .popup .search i {
   background-color: var(--bg-primary);

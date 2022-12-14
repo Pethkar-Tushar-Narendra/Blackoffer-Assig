@@ -43,7 +43,7 @@ const BarDiagram = ({ dataFromParent, title, name }) => {
       },
     },
   };
-  return <Bar options={option} data={data} />;
+  return <Bar options={option} width="100%" data={data} />;
 };
 
 export default BarDiagram;

@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Box.css';
 import { RiArrowDropDownLine } from 'react-icons/ri';
 import { GrFormClose } from 'react-icons/gr';
 import { HiSearch } from 'react-icons/hi';
-const Box = ({ title, value, func, toggle, modal, array }) => {
-  console.log(array);
+const Box = ({ title, value, setValue, toggle, modal, array }) => {
+  const [query, setQuery] = useState('');
   return (
     <div className="box">
       <p className="label">{title}</p>
@@ -14,13 +14,33 @@ const Box = ({ title, value, func, toggle, modal, array }) => {
       </div>
       <div className="popup" style={{ display: modal ? 'flex' : 'none' }}>
         <div className="search">
-          <input></input>
+          <input
+            value={query}
+            onChange={(e) => {
+              setQuery(e.target.value);
+            }}
+            placeholder="Search"
+          ></input>
           <i>
             <HiSearch />
           </i>
         </div>
         <div className="option">
-          <h4>Options</h4>
+          {array
+            .filter((item) => item.includes(query))
+            .sort((a, b) => (a > b ? 1 : -1))
+            .sort((a, b) => (a.toUpperCase() > b.toUpperCase() ? 1 : -1))
+            .map((item, i) => (
+              <h4
+                key={i}
+                onClick={() => {
+                  setValue(item);
+                  toggle();
+                }}
+              >
+                {item ? item : 'Not Available'}
+              </h4>
+            ))}
         </div>
       </div>
     </div>
