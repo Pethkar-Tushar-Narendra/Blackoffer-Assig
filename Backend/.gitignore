@@ -6,7 +6,6 @@
 .pnp.js
 .env
 ./data.js
-.gitignore
 # testing
 /coverage
 
