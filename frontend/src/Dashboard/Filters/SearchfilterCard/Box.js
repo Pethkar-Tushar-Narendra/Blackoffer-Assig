@@ -27,7 +27,7 @@ const Box = ({ title, value, setValue, toggle, modal, array }) => {
         </div>
         <div className="option">
           {array
-            .filter((item) => item.includes(query))
+            .filter((item) => item.toUpperCase().includes(query.toUpperCase()))
             .sort((a, b) => (a > b ? 1 : -1))
             .sort((a, b) => (a.toUpperCase() > b.toUpperCase() ? 1 : -1))
             .map((item, i) => (
