@@ -8,6 +8,14 @@
     "start": "node backend/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pethkar-Tushar-Narendra/HappyBaskests.git"
+  },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Pethkar-Tushar-Narendra/HappyBaskests/issues"
+  },
+  "homepage": "https://github.com/Pethkar-Tushar-Narendra/HappyBaskests#readme"
 }
